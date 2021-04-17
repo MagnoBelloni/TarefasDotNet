@@ -6,7 +6,7 @@ namespace TarefasBackEnd.Controllers
     [ApiController]
     public class IndexController : ControllerBase
     {
-        [HttpGet("")]
+        [HttpGet]
         public IActionResult Index()
         {
             return Redirect("/swagger");
