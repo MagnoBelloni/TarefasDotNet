@@ -9,6 +9,7 @@ using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Text;
 using TarefasBackEnd.Repositories;
+using System;
 
 namespace TarefasBackEnd
 {
@@ -46,7 +47,7 @@ namespace TarefasBackEnd
             });
 
             //services.AddDbContext<DataContext>(options => options.UseInMemoryDatabase("BDTarefas"));
-            services.AddDbContext<DataContext>(options => options.UseNpgsql(Configuration.GetConnectionString("Heroku")));
+            services.AddDbContext<DataContext>(options => options.UseNpgsql(Environment.GetEnvironmentVariable("DATABASE_URL")));
 
             services.AddTransient<ITarefaRepository, TarefaRepository>();
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
