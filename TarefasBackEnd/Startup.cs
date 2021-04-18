@@ -47,7 +47,7 @@ namespace TarefasBackEnd
             });
 
             //services.AddDbContext<DataContext>(options => options.UseInMemoryDatabase("BDTarefas"));
-            services.AddDbContext<DataContext>(options => options.UseNpgsql(Environment.GetEnvironmentVariable("DATABASE_URL")));
+            services.AddDbContext<DataContext>(options => options.UseNpgsql(Environment.GetEnvironmentVariable("DATABASE_CONNECTION")));
 
             services.AddTransient<ITarefaRepository, TarefaRepository>();
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
